@@ -48,16 +48,29 @@ class Simulation():
         import win32com.client as win32
         AspenSimulation = win32.gencache.EnsureDispatch("Apwn.Document")
     
-
+    
     def __init__(self, AspenFileName:str, WorkingDirectoryPath:str, VISIBILITY:bool = True):
         print("The current Directory is :  ")
+        self.WorkingDirectoryPath = WorkingDirectoryPath
         print(os.getcwd())                      #Returns the Directory where it is currently working
         os.chdir(WorkingDirectoryPath)          #Changes the Directory to  ..../AspenSimulation
         print("The new Directory where you should also have your Aspen file is : ")
-        print(os.getcwd())          
-        self.AspenSimulation.InitFromArchive2(os.path.abspath(AspenFileName))
+        print(os.getcwd())       
+        self.AspenFileName = AspenFileName   
+        self.AspenSimulation.InitFromArchive2(os.path.abspath(self.AspenFileName))
         print("The Aspen is active now. If you dont want to see aspen open again take VISIBITLY as False \n")
         self.AspenSimulation.Visible = VISIBILITY
+
+    def iniciar(self):
+        self.AspenSimulation = win32.gencache.EnsureDispatch("Apwn.Document")
+        self.AspenSimulation.InitFromArchive2(os.path.abspath(self.AspenFileName))
+        
+    def cerrar(self):
+        import subprocess
+        try:
+            subprocess.check_output(["taskkill", "/IM", "AspenPlus.exe", "/f"], stderr=subprocess.STDOUT)
+        except subprocess.CalledProcessError as e:
+            print(f"Error al terminar el proceso: {e.output.decode()}")
 
     def CloseAspen(self):
         AspenFileName = self.Give_AspenDocumentName()
@@ -77,6 +90,18 @@ class Simulation():
             blocktype = self.AspenSimulation.Tree.Elements("Data").Elements("Blocks").Elements(e.Name).AttributeValue(6)
             dictionary[e.Name] = blocktype
         return dictionary
+    
+    def restart_simulation(self):
+        # Guardar el estado actual de la simulación si es necesario
+        self.Save()
+        # Cerrar Aspen Plus
+        self.CloseAspen()
+        # Esperar unos segundos para asegurarse de que Aspen Plus se haya cerrado completamente
+        time.sleep(15)
+        # Reiniciar Aspen Plus y cargar el archivo de simulación
+        self.AspenSimulation.InitFromArchive2(os.path.abspath(self.AspenFileName))
+        self.AspenSimulation.Visible = self.VISIBILITY
+        print("Aspen Plus ha sido reiniciado.")
 
     @property
     def BLK(self):
@@ -97,10 +122,22 @@ class Simulation():
         return self.AspenSimulation.Tree.Elements("Data").Elements("Streams")
 
     def h2(self, valor):
-        self.AspenSimulation.Tree.Elements("Data").Elements("Streams").Elements("H2").Elements("Input").Elements("TOTFLOW").Elements("MIXED").Value = valor
+        try:
+            self.AspenSimulation.Tree.Elements("Data").Elements("Streams").Elements("H2").Elements("Input").Elements("TOTFLOW").Elements("MIXED").Value = valor
+        except:
+            self.cerrar()
+            self.iniciar()
+            print("\nReinicio")
+            self.AspenSimulation.Tree.Elements("Data").Elements("Streams").Elements("H2").Elements("Input").Elements("TOTFLOW").Elements("MIXED").Value = valor
 
     def purge(self, valor):
-        self.AspenSimulation.Tree.Elements("Data").Elements("Blocks").Elements("SPLIT").Elements("Input").Elements("FRAC").Elements("PURGE").Value = valor
+        try:
+            self.AspenSimulation.Tree.Elements("Data").Elements("Blocks").Elements("SPLIT").Elements("Input").Elements("FRAC").Elements("PURGE").Value = valor
+        except:
+            self.cerrar()
+            self.iniciar()
+            print("\nReinicio")
+            self.AspenSimulation.Tree.Elements("Data").Elements("Blocks").Elements("SPLIT").Elements("Input").Elements("FRAC").Elements("PURGE").Value = valor
 
     #Type definition to simplify the type hinting:
     Phnum = Literal[1,2,3]
@@ -258,7 +295,7 @@ class Simulation():
 
 
 
-    def Give_AspenDocumentName(self) -> String:
+    def Give_AspenDocumentName(self) -> String: # type: ignore
         """Returns name of Aspen document"""
         return self.AspenSimulation.FullName
     def DialogSuppression(self, TrueOrFalse: bool) -> None:
@@ -266,7 +303,10 @@ class Simulation():
         
         Args: 
             TrueOrFalse: can be True or False """
-        self.AspenSimulation.SuppressDialogs = TrueOrFalse
+        try:
+            self.AspenSimulation.SuppressDialogs = TrueOrFalse
+        except Exception as e:
+            print("Error>>>> ",e)
         
     def EngineRun(self) -> None:
         """Runs Simulation, synonymous with pressing the playbutton"""
@@ -1201,7 +1241,13 @@ class Simulation():
             #Nothing is needed
         #if you chose CONST-TEMP:
     def BLK_RPLUG_Set_T_SPEC_Constant_Temp(self, Blockname, ReactorTemperature):   
-        self.BLK.Elements(Blockname).Elements("Input").Elements("REAC_TEMP").Value = ReactorTemperature
+        try:
+            self.BLK.Elements(Blockname).Elements("Input").Elements("REAC_TEMP").Value = ReactorTemperature
+        except:
+            self.cerrar()
+            self.iniciar()
+            self.BLK.Elements(Blockname).Elements("Input").Elements("REAC_TEMP").Value = ReactorTemperature
+            print("\nReinicio")
         #if you chose Temperature Profile:
     #def BLK_RPLUG_Set_T_SPEC_TemperatureProfil(self, Blockname:str, TemperatureList: list[float], LocationList: list[float]) -> None:
     def BLK_RPLUG_Set_T_SPEC_TemperatureProfil(self, Blockname, TemperatureList, LocationList):
@@ -1354,7 +1400,13 @@ class Simulation():
 
 #PAGE 5     Pressurespecification
     def BLK_RPLUG_Set_InletProcessflowPressure(self, Blockname, InletProcessflowPressure):
-        self.BLK.Elements(Blockname).Elements("Input").Elements("PRES").Value = InletProcessflowPressure
+        try: 
+            self.BLK.Elements(Blockname).Elements("Input").Elements("PRES").Value = InletProcessflowPressure
+        except:
+            self.cerrar()
+            self.iniciar()
+            print("\nReinicio")
+            self.BLK.Elements(Blockname).Elements("Input").Elements("PRES").Value = InletProcessflowPressure
     def BLK_RPLUG_Set_InletThermalfluidPressure(self, Blockname, InletThermalfluidPressure):
         self.BLK.Elements(Blockname).Elements("Input").Elements("CPRES").Value = InletThermalfluidPressure
         #Chose Option for the Pressure drop calculation
@@ -1447,7 +1499,13 @@ class Simulation():
         self.BLK.Elements(Blockname).Elements("Input").Elements("IGN_CAT_VOL").Value = IgnoreCatalystVolume
 
     def BLK_RPLUG_Set_WeightOfCatalystLoaded(self, Blockname, WeightOfCatalystLoaded):
-        self.BLK.Elements(Blockname).Elements("Input").Elements("CATWT").Value = WeightOfCatalystLoaded
+        try:
+            self.BLK.Elements(Blockname).Elements("Input").Elements("CATWT").Value = WeightOfCatalystLoaded
+        except:
+            self.cerrar()
+            self.iniciar()
+            self.BLK.Elements(Blockname).Elements("Input").Elements("CATWT").Value = WeightOfCatalystLoaded
+            print("\nReinicio")
     def BLK_RPLUG_Set_ParticleDensity(self, Blockname, ParticleDensity):
         self.BLK.Elements(Blockname).Elements("Input").Elements("CAT_RHO").Value = ParticleDensity
     def BLK_RPLUG_Set_BedVoidage(self, Blockname, BedVoidage):
@@ -1693,7 +1751,13 @@ class Simulation():
     def BLK_RADFRAC_Set_ConvergenceMethod(self, Blockname:str, ConvergenceMethod: Literal["STANDARD", "PETROLEUM", "NONIDEAL", "AZEOTROPIC", "CRYOGENIX", "OTHERS"]) -> None:      #This can be STANDARD, PETROLEUM, NONIDEAL, AZEOTROPIC, CRYOGENIX, OTHERS
         self.BLK.Elements(Blockname).Elements("Input").Elements("CONV_METH").Value = ConvergenceMethod 
     def BLK_RADFRAC_Set_Refluxratio(self, Blockname, Refluxratio):
-        self.BLK.Elements(Blockname).Elements("Input").Elements("BASIS_RR").Value = Refluxratio
+        try:
+            self.BLK.Elements(Blockname).Elements("Input").Elements("BASIS_RR").Value = Refluxratio
+        except:
+            self.cerrar()
+            self.iniciar()
+            print("\nReinicio")
+            self.BLK.Elements(Blockname).Elements("Input").Elements("BASIS_RR").Value = Refluxratio
     def BLK_RADFRAC_Set_Refluxrate(self, Blockname, Refluxrate):
         self.BLK.Elements(Blockname).Elements("Input").Elements("BASIS_L1").Value = Refluxrate
     def BLK_RADFRAC_Set_BoilupRate(self, Blockname, BoilupRate):
@@ -2903,7 +2967,13 @@ class Simulation():
     def BLK_FLASH2_Get_VaporFractionMass(self, Blockname):
         return self.BLK.Elements(Blockname).Elements("Output").Elements("MVFRAC").Value
     def BLK_FLASH2_Get_HeatingDuty(self, Blockname):
-        return self.BLK.Elements(Blockname).Elements("Output").Elements("QCALC").Value
+        try:
+            return self.BLK.Elements(Blockname).Elements("Output").Elements("QCALC").Value
+        except:
+            self.cerrar()
+            self.iniciar()
+            print("\nReinicio")
+            return self.BLK.Elements(Blockname).Elements("Output").Elements("QCALC").Value
     def BLK_FLASH2_Get_NetDuty(self, Blockname):
         return self.BLK.Elements(Blockname).Elements("Output").Elements("QNET").Value
     def BLK_FLASH2_Get_FirstLiquidtoTotalLiquidRatio(self, Blockname):
@@ -3130,7 +3200,13 @@ class Simulation():
     def BLK_RADFRAC_Get_Reboiler_Temperature(self, Blockname):
         return self.BLK.Elements(Blockname).Elements("Output").Elements("BOTTOM_TEMP").Value
     def BLK_RADFRAC_Get_Reboiler_HeatDuty(self, Blockname):
-        return self.BLK.Elements(Blockname).Elements("Output").Elements("REB_DUTY").Value
+        try:
+            return self.BLK.Elements(Blockname).Elements("Output").Elements("REB_DUTY").Value
+        except:
+            self.cerrar()
+            self.iniciar()
+            print("\nReinicio")
+            return self.BLK.Elements(Blockname).Elements("Output").Elements("REB_DUTY").Value
     def BLK_RADFRAC_Get_Reboiler_BottomsRate(self, Blockname):
         return self.BLK.Elements(Blockname).Elements("Output").Elements("MOLE_B").Value
     def BLK_RADFRAC_Get_Reboiler_BoilupRate(self, Blockname):
@@ -3434,7 +3510,14 @@ class Simulation():
     def BLK_RCSTR_Get_OutletVaporFraction(self,Blockname):
         return self.BLK.Elements(Blockname).Elements("Output").Elements("B_VFRAC").Value
     def BLK_RCSTR_Get_HeatDuty(self,Blockname):
-        return self.BLK.Elements(Blockname).Elements("Output").Elements("QCALC").Value
+        try:
+            return self.BLK.Elements(Blockname).Elements("Output").Elements("QCALC").Value
+        except:
+            self.cerrar()
+            self.iniciar()
+            print("\nReinicio")
+            return self.BLK.Elements(Blockname).Elements("Output").Elements("QCALC").Value
+
     def BLK_RCSTR_Get_NetHeatDuty(self,Blockname):
         return self.BLK.Elements(Blockname).Elements("Output").Elements("QNET").Value
     def BLK_RCSTR_Get_ReactorVolume(self,Blockname):
@@ -4192,17 +4275,30 @@ class Simulation():
         #self.BLK.Elements("B1").Elements("Input").Elements("MAXOL").Value = iterations
 
         while tries != 3:
-            start = time.time()
-            self.AspenSimulation.Engine.Reinit()
-            self.AspenSimulation.Engine.Run2()
-            #print(f"Runtime = {time.time() - start}")
-            converged = self.AspenSimulation.Tree.Elements("Data").Elements("Results Summary").Elements("Run-Status").Elements("Output").Elements("PER_ERROR").Value
-            if converged == 0:
-                converged = True
-                break
-            elif converged == 1:
-                tries += 1
-                converged = False
+            try:
+                start = time.time()
+                self.AspenSimulation.Engine.Reinit()
+                self.AspenSimulation.Engine.Run2()
+                #print(f"Runtime = {time.time() - start}")
+                converged = self.AspenSimulation.Tree.Elements("Data").Elements("Results Summary").Elements("Run-Status").Elements("Output").Elements("PER_ERROR").Value
+                if converged == 0:
+                    converged = True
+                    break
+                elif converged == 1:
+                    tries += 1
+                    converged = False
+            except:
+                self.cerrar()
+                self.iniciar()
+                print("Reinicio")
+                self.AspenSimulation.Engine.Run2()
+                converged = self.AspenSimulation.Tree.Elements("Data").Elements("Results Summary").Elements("Run-Status").Elements("Output").Elements("PER_ERROR").Value
+                if converged == 0:
+                    converged = True
+                    break
+                elif converged == 1:
+                    tries += 1
+                    converged = False
         return converged
 
 
