@@ -45,14 +45,18 @@ class MyOptimizationProblem(ElementwiseProblem):
         self.diff = self.upper - self.lower
         self.execution_count = 0  # Añadir un contador de ejecuciones
         self.max_executions_before_restart = 100000
-
+    def iniciar(self):
+        #self.sim.CloseAspen()
+        self.sim = Simulation(AspenFileName= "Methanol_CO2.bkp", WorkingDirectoryPath= r"C:/Users/midia/OneDrive/Escritorio/pablo" ,VISIBILITY=False)
 
     def _evaluate(self, x, out, *args, **kwargs):
         
         try:
             convergence, x1 , x2, massFrac_metoh = self.aspen(x)
         except:
-            print("Error ->>>>>>>>>>>>>>>>>>>>>")
+            print("Error en _evaluate")
+            self.iniciar()
+            convergence, x1 , x2, massFrac_metoh = self.aspen(x)
         restr_convergencia = 0 if convergence else 1
         #restr_massFrac_metoh = -1 if massFrac_metoh is not None else 1
         # Restricción de fracción masica de metanol: debe ser >= 0.8, reformula para pymoo

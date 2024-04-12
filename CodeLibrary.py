@@ -122,22 +122,10 @@ class Simulation():
         return self.AspenSimulation.Tree.Elements("Data").Elements("Streams")
 
     def h2(self, valor):
-        try:
-            self.AspenSimulation.Tree.Elements("Data").Elements("Streams").Elements("H2").Elements("Input").Elements("TOTFLOW").Elements("MIXED").Value = valor
-        except:
-            self.cerrar()
-            self.iniciar()
-            print("\nReinicio")
-            self.AspenSimulation.Tree.Elements("Data").Elements("Streams").Elements("H2").Elements("Input").Elements("TOTFLOW").Elements("MIXED").Value = valor
-
+        self.AspenSimulation.Tree.Elements("Data").Elements("Streams").Elements("H2").Elements("Input").Elements("TOTFLOW").Elements("MIXED").Value = valor
+        
     def purge(self, valor):
-        try:
-            self.AspenSimulation.Tree.Elements("Data").Elements("Blocks").Elements("SPLIT").Elements("Input").Elements("FRAC").Elements("PURGE").Value = valor
-        except:
-            self.cerrar()
-            self.iniciar()
-            print("\nReinicio")
-            self.AspenSimulation.Tree.Elements("Data").Elements("Blocks").Elements("SPLIT").Elements("Input").Elements("FRAC").Elements("PURGE").Value = valor
+        self.AspenSimulation.Tree.Elements("Data").Elements("Blocks").Elements("SPLIT").Elements("Input").Elements("FRAC").Elements("PURGE").Value = valor
 
     #Type definition to simplify the type hinting:
     Phnum = Literal[1,2,3]
@@ -306,7 +294,7 @@ class Simulation():
         try:
             self.AspenSimulation.SuppressDialogs = TrueOrFalse
         except Exception as e:
-            print("Error>>>> ",e)
+            print("Error en DialogSuppression  ",e)
         
     def EngineRun(self) -> None:
         """Runs Simulation, synonymous with pressing the playbutton"""
@@ -1241,13 +1229,7 @@ class Simulation():
             #Nothing is needed
         #if you chose CONST-TEMP:
     def BLK_RPLUG_Set_T_SPEC_Constant_Temp(self, Blockname, ReactorTemperature):   
-        try:
-            self.BLK.Elements(Blockname).Elements("Input").Elements("REAC_TEMP").Value = ReactorTemperature
-        except:
-            self.cerrar()
-            self.iniciar()
-            self.BLK.Elements(Blockname).Elements("Input").Elements("REAC_TEMP").Value = ReactorTemperature
-            print("\nReinicio")
+        self.BLK.Elements(Blockname).Elements("Input").Elements("REAC_TEMP").Value = ReactorTemperature
         #if you chose Temperature Profile:
     #def BLK_RPLUG_Set_T_SPEC_TemperatureProfil(self, Blockname:str, TemperatureList: list[float], LocationList: list[float]) -> None:
     def BLK_RPLUG_Set_T_SPEC_TemperatureProfil(self, Blockname, TemperatureList, LocationList):
@@ -1400,13 +1382,7 @@ class Simulation():
 
 #PAGE 5     Pressurespecification
     def BLK_RPLUG_Set_InletProcessflowPressure(self, Blockname, InletProcessflowPressure):
-        try: 
-            self.BLK.Elements(Blockname).Elements("Input").Elements("PRES").Value = InletProcessflowPressure
-        except:
-            self.cerrar()
-            self.iniciar()
-            print("\nReinicio")
-            self.BLK.Elements(Blockname).Elements("Input").Elements("PRES").Value = InletProcessflowPressure
+        self.BLK.Elements(Blockname).Elements("Input").Elements("PRES").Value = InletProcessflowPressure
     def BLK_RPLUG_Set_InletThermalfluidPressure(self, Blockname, InletThermalfluidPressure):
         self.BLK.Elements(Blockname).Elements("Input").Elements("CPRES").Value = InletThermalfluidPressure
         #Chose Option for the Pressure drop calculation
@@ -1499,13 +1475,8 @@ class Simulation():
         self.BLK.Elements(Blockname).Elements("Input").Elements("IGN_CAT_VOL").Value = IgnoreCatalystVolume
 
     def BLK_RPLUG_Set_WeightOfCatalystLoaded(self, Blockname, WeightOfCatalystLoaded):
-        try:
-            self.BLK.Elements(Blockname).Elements("Input").Elements("CATWT").Value = WeightOfCatalystLoaded
-        except:
-            self.cerrar()
-            self.iniciar()
-            self.BLK.Elements(Blockname).Elements("Input").Elements("CATWT").Value = WeightOfCatalystLoaded
-            print("\nReinicio")
+        self.BLK.Elements(Blockname).Elements("Input").Elements("CATWT").Value = WeightOfCatalystLoaded
+        
     def BLK_RPLUG_Set_ParticleDensity(self, Blockname, ParticleDensity):
         self.BLK.Elements(Blockname).Elements("Input").Elements("CAT_RHO").Value = ParticleDensity
     def BLK_RPLUG_Set_BedVoidage(self, Blockname, BedVoidage):
@@ -1751,13 +1722,7 @@ class Simulation():
     def BLK_RADFRAC_Set_ConvergenceMethod(self, Blockname:str, ConvergenceMethod: Literal["STANDARD", "PETROLEUM", "NONIDEAL", "AZEOTROPIC", "CRYOGENIX", "OTHERS"]) -> None:      #This can be STANDARD, PETROLEUM, NONIDEAL, AZEOTROPIC, CRYOGENIX, OTHERS
         self.BLK.Elements(Blockname).Elements("Input").Elements("CONV_METH").Value = ConvergenceMethod 
     def BLK_RADFRAC_Set_Refluxratio(self, Blockname, Refluxratio):
-        try:
-            self.BLK.Elements(Blockname).Elements("Input").Elements("BASIS_RR").Value = Refluxratio
-        except:
-            self.cerrar()
-            self.iniciar()
-            print("\nReinicio")
-            self.BLK.Elements(Blockname).Elements("Input").Elements("BASIS_RR").Value = Refluxratio
+        self.BLK.Elements(Blockname).Elements("Input").Elements("BASIS_RR").Value = Refluxratio
     def BLK_RADFRAC_Set_Refluxrate(self, Blockname, Refluxrate):
         self.BLK.Elements(Blockname).Elements("Input").Elements("BASIS_L1").Value = Refluxrate
     def BLK_RADFRAC_Set_BoilupRate(self, Blockname, BoilupRate):
@@ -2967,13 +2932,7 @@ class Simulation():
     def BLK_FLASH2_Get_VaporFractionMass(self, Blockname):
         return self.BLK.Elements(Blockname).Elements("Output").Elements("MVFRAC").Value
     def BLK_FLASH2_Get_HeatingDuty(self, Blockname):
-        try:
-            return self.BLK.Elements(Blockname).Elements("Output").Elements("QCALC").Value
-        except:
-            self.cerrar()
-            self.iniciar()
-            print("\nReinicio")
-            return self.BLK.Elements(Blockname).Elements("Output").Elements("QCALC").Value
+        return self.BLK.Elements(Blockname).Elements("Output").Elements("QCALC").Value
     def BLK_FLASH2_Get_NetDuty(self, Blockname):
         return self.BLK.Elements(Blockname).Elements("Output").Elements("QNET").Value
     def BLK_FLASH2_Get_FirstLiquidtoTotalLiquidRatio(self, Blockname):
@@ -3200,13 +3159,8 @@ class Simulation():
     def BLK_RADFRAC_Get_Reboiler_Temperature(self, Blockname):
         return self.BLK.Elements(Blockname).Elements("Output").Elements("BOTTOM_TEMP").Value
     def BLK_RADFRAC_Get_Reboiler_HeatDuty(self, Blockname):
-        try:
-            return self.BLK.Elements(Blockname).Elements("Output").Elements("REB_DUTY").Value
-        except:
-            self.cerrar()
-            self.iniciar()
-            print("\nReinicio")
-            return self.BLK.Elements(Blockname).Elements("Output").Elements("REB_DUTY").Value
+        return self.BLK.Elements(Blockname).Elements("Output").Elements("REB_DUTY").Value
+
     def BLK_RADFRAC_Get_Reboiler_BottomsRate(self, Blockname):
         return self.BLK.Elements(Blockname).Elements("Output").Elements("MOLE_B").Value
     def BLK_RADFRAC_Get_Reboiler_BoilupRate(self, Blockname):
@@ -3510,13 +3464,8 @@ class Simulation():
     def BLK_RCSTR_Get_OutletVaporFraction(self,Blockname):
         return self.BLK.Elements(Blockname).Elements("Output").Elements("B_VFRAC").Value
     def BLK_RCSTR_Get_HeatDuty(self,Blockname):
-        try:
-            return self.BLK.Elements(Blockname).Elements("Output").Elements("QCALC").Value
-        except:
-            self.cerrar()
-            self.iniciar()
-            print("\nReinicio")
-            return self.BLK.Elements(Blockname).Elements("Output").Elements("QCALC").Value
+        return self.BLK.Elements(Blockname).Elements("Output").Elements("QCALC").Value
+    
 
     def BLK_RCSTR_Get_NetHeatDuty(self,Blockname):
         return self.BLK.Elements(Blockname).Elements("Output").Elements("QNET").Value
@@ -4288,17 +4237,8 @@ class Simulation():
                     tries += 1
                     converged = False
             except:
-                self.cerrar()
-                self.iniciar()
-                print("Reinicio")
-                self.AspenSimulation.Engine.Run2()
-                converged = self.AspenSimulation.Tree.Elements("Data").Elements("Results Summary").Elements("Run-Status").Elements("Output").Elements("PER_ERROR").Value
-                if converged == 0:
-                    converged = True
-                    break
-                elif converged == 1:
-                    tries += 1
-                    converged = False
+                print("Error en Run")
+                return converged
         return converged
 
 
