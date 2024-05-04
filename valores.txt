@@ -912,3 +912,6 @@ Funciones objetivo:
 
 
 [Done] exited with code=0 in 7320.933 seconds
+
+
+

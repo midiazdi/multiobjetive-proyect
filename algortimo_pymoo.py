@@ -38,19 +38,24 @@ class MyOptimizationProblem(ElementwiseProblem):
         xu = np.ones(6)
         super().__init__(n_var=6, n_obj=2, n_constr=2, xl=xl, xu=xu, **kwargs)
         self.sim = Simulation(AspenFileName= "Methanol_CO2.bkp", WorkingDirectoryPath= r"C:/Users/midia/OneDrive/Escritorio/pablo" ,VISIBILITY=False)
+        self.sim.AspenSimulation.Tree.FindNode("\\Data\\Setup\\Run-Control\\Input\\MAX_FILESIZE").Value = 2000
         self.blocks = self.sim.ListBlocks()
         self.penaltis = 400
         self.lower = np.array([10,190,10,0.1,2500,0.1])
         self.upper = np.array([120,300,10000,4.5,75000,0.97])
         self.diff = self.upper - self.lower
         self.execution_count = 0  # Añadir un contador de ejecuciones
-        self.max_executions_before_restart = 100000
+        self.max_executions_before_restart = 1000
     def iniciar(self):
         #self.sim.CloseAspen()
         self.sim = Simulation(AspenFileName= "Methanol_CO2.bkp", WorkingDirectoryPath= r"C:/Users/midia/OneDrive/Escritorio/pablo" ,VISIBILITY=False)
 
     def _evaluate(self, x, out, *args, **kwargs):
-        
+
+        if self.execution_count == self.max_executions_before_restart:
+            self.sim.EngineReinit()
+            print("Se reinicio. ", self.execution_count)
+            self.execution_count = 0
         try:
             convergence, x1 , x2, massFrac_metoh = self.aspen(x)
         except:
@@ -66,6 +71,8 @@ class MyOptimizationProblem(ElementwiseProblem):
         # Asigna las restricciones calculadas al diccionario 'out'
         out["G"] = np.array([restr_convergencia, restr_fraccion_masica])
         out["F"] = np.array([-x1,x2]) 
+        self.execution_count += 1
+        
     
     def aspen(self, x):
         
@@ -76,7 +83,7 @@ class MyOptimizationProblem(ElementwiseProblem):
         self.sim.BLK_RPLUG_Set_WeightOfCatalystLoaded("R-1",decision_var[2]) #asigna el peso del reactor R-1
         self.sim.BLK_RADFRAC_Set_Refluxratio("COLUMN2", decision_var[3]) #asigna la relacion de reflujo de la columna 2
         self.sim.h2(decision_var[4]) # Asigna un valor de entrada para el total flow rate del H2 (metodo creado)
-        self.sim.purge(decision_var[5])
+        self.sim.purge(decision_var[5]) #asignar la relacion de hidrogeno
         
         #Ejecucion de la simulacion con los nuevos datos
         convergence = self.sim.Run()
@@ -87,14 +94,15 @@ class MyOptimizationProblem(ElementwiseProblem):
         massFlow_metoh = self.sim.AspenSimulation.Tree.FindNode("\\Data\\Streams\\METOH\\Output\\MASSFLOW\\MIXED\\CH3OH").Value
         massFrac_metoh = self.sim.AspenSimulation.Tree.FindNode("\\Data\\Streams\\METOH\\Output\\MASSFRAC\\MIXED\\CH3OH").Value
 
-        #Evaluacion de restricciones
         
+        #Objetivos
+        #maximizar flujo de metanol
         x1 = massFlow_metoh
+        #minimizar consumo energetico
         x2 = hD
+        #minimizar inversion
         
-        #print(massFlow_metoh,massFrac_metoh, convergence )
-        #print(x)
-        #print("->>",decision_var)
+
 
         return convergence, x1 , x2, massFrac_metoh 
 
@@ -133,14 +141,14 @@ if __name__=="__main__":
 
     my_problem = MyOptimizationProblem(elementwise_runner=runner)"""
     my_problem = MyOptimizationProblem()
-    algorithm = NSGA2(pop_size=10,
-                 crossover=SBX(eta=11, prob=0.9),
-                 mutation=PM(eta=9))
+    algorithm = NSGA2(pop_size=100,
+                 crossover=SBX(eta=12, prob=0.9),
+                 mutation=PM(eta=10))
 
     result = minimize(my_problem,
                     algorithm,
-                    ('n_gen', 80),
-                    seed=200,
+                    ('n_gen', 50),
+                    seed=51,
                     save_history=True,
                     verbose=True)
     

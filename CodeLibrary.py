@@ -308,7 +308,7 @@ class Simulation():
 
         Other possible functions you might need are: BlockReinit(Blockname), StreamReinit(Streamname)
         """
-        self.AspenSimulation.Reinit()
+        self.AspenSimulation.Engine.Reinit()
     
     def BlockReinit(self, Blockname:str) -> None:
         """Reinitalizes the Block with given Name,
