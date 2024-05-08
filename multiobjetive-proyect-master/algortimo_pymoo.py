@@ -75,7 +75,7 @@ class MyOptimizationProblem(ElementwiseProblem):
     def aspen(self, x):
         
         decision_var = self.diff*x + self.lower
-    
+        ##Asignacion de variables
         self.sim.BLK_RPLUG_Set_InletProcessflowPressure("R-1",decision_var[0]) #asigna la presion del reactor R-1
         self.sim.BLK_RPLUG_Set_T_SPEC_Constant_Temp("R-1", decision_var[1]) #asigna la temperatura del raactor R-1
         self.sim.BLK_RPLUG_Set_WeightOfCatalystLoaded("R-1",decision_var[2]) #asigna el peso del reactor R-1

@@ -3226,7 +3226,20 @@ class Simulation():
         return self.BLK.Elements(Blockname).Elements("Output").Elements("TH_Y").Elements(Compoundname).Value
 
 #PAGE 5 Utilities:
-        #missing    
+    def BLK_RADFRAC_Get_Reboiler_Duty(self, Blockname):
+        return self.BLK.Elements(Blockname).Elements("Output").Elements("COND_DUTY").Value  
+    def BLK_RADFRAC_Get_Reboiler_Usage(self, Blockname):
+        return self.BLK.Elements(Blockname).Elements("Output").Elements("COND_DUTY").Value   
+    def BLK_RADFRAC_Get_Reboiler_Co2Rate(self, Blockname):
+        return self.BLK.Elements(Blockname).Elements("Output").Elements("COND_CO2RATE").Value  
+    
+    def BLK_RADFRAC_Get_Condenser_Duty(self, Blockname):
+        return self.BLK.Elements(Blockname).Elements("Output").Elements("REB_DUTY").Value  
+    def BLK_RADFRAC_Get_Condenser_Usage(self, Blockname):
+        return self.BLK.Elements(Blockname).Elements("Output").Elements("REB_DUTY").Value   
+    def BLK_RADFRAC_Get_Condenser_Co2Rate(self, Blockname):
+        return self.BLK.Elements(Blockname).Elements("Output").Elements("REB_CO2RATE").Value 
+        
 
 #PAGE 6 STAGE UTILITIES:
         #MISSING

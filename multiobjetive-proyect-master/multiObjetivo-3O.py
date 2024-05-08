@@ -75,7 +75,7 @@ class MyOptimizationProblem(ElementwiseProblem):
     def aspen(self, x):
         
         decision_var = self.diff*x + self.lower
-    
+        ##Asignacion de variables
         self.sim.BLK_RPLUG_Set_InletProcessflowPressure("R-1",decision_var[0]) #asigna la presion del reactor R-1
         self.sim.BLK_RPLUG_Set_T_SPEC_Constant_Temp("R-1", decision_var[1]) #asigna la temperatura del raactor R-1
         self.sim.BLK_RPLUG_Set_WeightOfCatalystLoaded("R-1",decision_var[2]) #asigna el peso del reactor R-1
@@ -108,12 +108,18 @@ class MyOptimizationProblem(ElementwiseProblem):
         datos = {}
         for name,typ in self.blocks.items():
             if typ == 'RadFrac':
-                RadFracHeatDuty = self.sim.BLK_RADFRAC_Get_Reboiler_HeatDuty(name)
+                #columna1
+                condenser_co2rate_col2 = self.sim.BLK_RADFRAC_Get_Reboiler_Duty(name) #capturar el co2 del condensador de la columna
+                condenser_usage_col2 = self.sim.BLK_RADFRAC_Get_Reboiler_Usage(name) #capturar el uso de agua para el condensador
+                reboiler_co2rate_col2 = self.sim.BLK_RADFRAC_Get_Reboiler_Co2Rate(name) #capturar el co2 del reboiler de la columna
+                reboiler_usege_col2 = self.sim.BLK_RADFRAC_Get_Reboiler_Usage(name) #capturar el uso de MPSTEAM para el reboiler
+                #columna2
 
-                if RadFracHeatDuty == None:
-                    datos[name] = 0
-                else:
-                    datos[name] = abs(RadFracHeatDuty)
+                condenser_co2rate_col1 = self.sim.AspenSimulation.Tree.FindNode("\Data\Blocks\COLUMN1\Output\CO2RATE") #capturar el co2 del condensador de la columna
+                condenser_usage_col1 = self.sim.AspenSimulation.Tree.FindNode("\Data\Blocks\COLUMN1\Output\COND_USAGE") #capturar el uso de agua para el condensador
+                reboiler_co2rate_col1 = self.sim.AspenSimulation.Tree.FindNode("\Data\Blocks\COLUMN1\Output\REB_CO2RATE") #capturar el co2 del reboiler de la columna
+                reboiler_usege_col1 = self.sim.AspenSimulation.Tree.FindNode("\Data\Blocks\COLUMN1\Output\REB_USAGE") #capturar el uso de MPSTEAM para el reboiler
+
             elif typ == 'Heater':
                 HeaterHeatDuty = self.sim.BLK_RCSTR_Get_HeatDuty(name)
                 if HeaterHeatDuty == None:
