@@ -1,0 +1,1204 @@
+Presion R1: 117.11555547
+Temperatura R1:  282.62494758
+Catalizador R1:  9930.3119578
+Columna h2:  4.0646343484
+Corriente H2: 2506.3434236
+St:  0.27965880625
+
+ mass FLow:  1837.15782
+
+ mass frac:  0.999149728
+
+ Energia:  4257144.9060207
+
+ convergencia:  True
+Presion R1: 119.09792894
+Temperatura R1:  294.37430619
+Catalizador R1:  6513.0211893
+Columna h2:  4.0754153824
+Corriente H2: 2522.1979225
+St:  0.13519361932
+
+ mass FLow:  1839.86185
+
+ mass frac:  0.999189577
+
+ Energia:  7863482.995589
+
+ convergencia:  True
+Presion R1: 119.09792894
+Temperatura R1:  294.37430619
+Catalizador R1:  6513.0211893
+Columna h2:  3.5823060448
+Corriente H2: 2522.1979225
+St:  0.13519361932
+
+ mass FLow:  1839.09199
+
+ mass frac:  0.998954316
+
+ Energia:  7804356.953689
+
+ convergencia:  True
+Presion R1: 119,70823853
+Temperatura R1:  298,62245273
+Catalizador R1:  8078,3354581
+Columna h2:  3,630821932
+Corriente H2: 2529,6434379
+St:  0,43186337572
+
+ mass FLow:  1835.12291
+
+ mass frac:  0.998937147
+
+ Energia:  3198415.2839903
+
+ convergencia:  True
+Presion R1: 119.14931225
+Temperatura R1:  293.06825804
+Catalizador R1:  9740.4710687
+Columna h2:  2.9949616432
+Corriente H2: 2506.011613
+St:  0.53175954145
+
+ mass FLow:  1831.91786
+
+ mass frac:  0.998403645
+
+ Energia:  2678111.7952637
+
+ convergencia:  True
+Presion R1: 119.72473369
+Temperatura R1:  283.02649114
+Catalizador R1:  7599.3303028
+Columna h2:  3.1654789484
+Corriente H2: 2522.1189882
+St:  0.1639521849
+
+ mass FLow:  1837.08144
+
+ mass frac:  0.99863669
+
+ Energia:  6419263.57194
+
+ convergencia:  True
+Presion R1: 117.44738851
+Temperatura R1:  287.62355273
+Catalizador R1:  9991.2024264
+Columna h2:  2.9838145116
+Corriente H2: 2505.714741
+St:  0.8968299289
+
+ mass FLow:  1824.991
+
+ mass frac:  0.998307805
+
+ Energia:  1965959.4963109
+
+ convergencia:  True
+Presion R1: 117.42492607
+Temperatura R1:  293.8779566
+Catalizador R1:  9985.5586158
+Columna h2:  2.9946982988
+Corriente H2: 2502.5290236
+St:  0.53175954145
+
+ mass FLow:  1831.97451
+
+ mass frac:  0.998404594
+
+ Energia:  2678991.0971092
+
+ convergencia:  True
+Presion R1: 117.88181668
+Temperatura R1:  283.17879164
+Catalizador R1:  7899.7925897
+Columna h2:  3.1634799756
+Corriente H2: 2504.0255719
+St:  0.1086315823
+
+ mass FLow:  1838.48978
+
+ mass frac:  0.998645106
+
+ Energia:  9115037.529569
+
+ convergencia:  True
+Presion R1: 119,98571386
+Temperatura R1:  297,57421642
+Catalizador R1:  7586,3682778
+Columna h2:  2,0554881412
+Corriente H2: 2521,6972461
+St:  0,95530242271
+
+ mass FLow:  1819.07768
+
+ mass frac:  0.99616184
+
+ Energia:  1825840.5259351002
+
+ convergencia:  True
+Presion R1: 119.17174235
+Temperatura R1:  287.43639587
+Catalizador R1:  9743.1326145
+Columna h2:  2.9840778604
+Corriente H2: 2506.3565804
+St:  0.8968299289
+
+ mass FLow:  1825.15511
+
+ mass frac:  0.998313033
+
+ Energia:  1966077.5876451998
+
+ convergencia:  True
+Presion R1: 119.09792894
+Temperatura R1:  293.96845888
+Catalizador R1:  8977.3818018
+Columna h2:  4.3835019392
+Corriente H2: 2511.4146543
+St:  0.6735449509
+
+ mass FLow:  1832.46806
+
+ mass frac:  0.999196281
+
+ Energia:  2491709.974154
+
+ convergencia:  True
+Presion R1: 117.11555547
+Temperatura R1:  282.92004513
+Catalizador R1:  9869.4290317
+Columna h2:  2.7596117284
+Corriente H2: 2503.4809506
+St:  0.95737668019
+
+ mass FLow:  1821.84578
+
+ mass frac:  0.997986237
+
+ Energia:  1862311.370974
+
+ convergencia:  True
+Presion R1: 119.87775898
+Temperatura R1:  298.55654183
+Catalizador R1:  8078.3354581
+Columna h2:  3.6898913644
+Corriente H2: 2507.4896854
+St:  0.89402006293
+
+ mass FLow:  1829.22971
+
+ mass frac:  0.998889664
+
+ Energia:  2085685.4727699
+
+ convergencia:  True
+Presion R1: 111.43140821
+Temperatura R1:  297.9617209
+Catalizador R1:  7868.1618521
+Columna h2:  3.1634799756
+Corriente H2: 2504.0075896
+St:  0.1086315823
+
+ mass FLow:  1838.78578
+
+ mass frac:  0.998648166
+
+ Energia:  9399956.728167
+
+ convergencia:  True
+Presion R1: 118.95506776
+Temperatura R1:  294.37430619
+Catalizador R1:  6513.0211893
+Columna h2:  3.5823060448
+Corriente H2: 2522.1979225
+St:  0.13519361932
+
+ mass FLow:  1839.24562
+
+ mass frac:  0.998955293
+
+ Energia:  7804425.486565
+
+ convergencia:  True
+Presion R1: 119.69853235
+Temperatura R1:  286.32826753
+Catalizador R1:  7647.1569982
+Columna h2:  3.3030437296
+Corriente H2: 2526.224713
+St:  0.21515368546
+
+ mass FLow:  1836.83137
+
+ mass frac:  0.998745533
+
+ Energia:  5186126.135157
+
+ convergencia:  True
+Presion R1: 106.48297659
+Temperatura R1:  261.48115216
+Catalizador R1:  9629.2974436
+Columna h2:  1.3005856808
+Corriente H2: 2504.8469586
+St:  0.9319986523
+
+ mass FLow:  1781.01417
+
+ mass frac:  0.987738324
+
+ Energia:  1653629.5486835002
+
+ convergencia:  True
+Presion R1: 119.16341909
+Temperatura R1:  282.60210718
+Catalizador R1:  9949.2402905
+Columna h2:  4.0438771372
+Corriente H2: 2503.6824612
+St:  0.6722681041
+
+ mass FLow:  1830.41478
+
+ mass frac:  0.999056402
+
+ Energia:  2409023.4698929
+
+ convergencia:  True
+Presion R1: 119.09792894
+Temperatura R1:  293.96845888
+Catalizador R1:  8977.3818018
+Columna h2:  4.454102324
+Corriente H2: 2511.6315316
+St:  0.68503128598
+
+ mass FLow:  1832.3556
+
+ mass frac:  0.999213917
+
+ Energia:  2477524.0501963003
+
+ convergencia:  True
+Presion R1: 118.66569263
+Temperatura R1:  298.55654183
+Catalizador R1:  8078.3354581
+Columna h2:  3.6898913644
+Corriente H2: 2506.3110916
+St:  0.89447046541
+
+ mass FLow:  1829.1184
+
+ mass frac:  0.9988864
+
+ Energia:  2084441.3976391
+
+ convergencia:  True
+Presion R1: 118.36003266
+Temperatura R1:  283.48017382
+Catalizador R1:  9233.952864
+Columna h2:  3.2577364368
+Corriente H2: 2530.0973999
+St:  0.93600279946
+
+ mass FLow:  1823.82791
+
+ mass frac:  0.998553495
+
+ Energia:  1953999.7997005
+
+ convergencia:  True
+Presion R1: 119.87775898
+Temperatura R1:  298.55654183
+Catalizador R1:  8355.4050212
+Columna h2:  3.6898913644
+Corriente H2: 2507.4896854
+St:  0.89402006293
+
+ mass FLow:  1829.22821
+
+ mass frac:  0.998889203
+
+ Energia:  2085673.8635698
+
+ convergencia:  True
+Presion R1: 114.46369824
+Temperatura R1:  282.99403377
+Catalizador R1:  6874.9988693
+Columna h2:  2.082028818
+Corriente H2: 2508.2407168
+St:  0.96880685938
+
+ mass FLow:  1815.55625
+
+ mass frac:  0.996242362
+
+ Energia:  1771733.38854619
+
+ convergencia:  True
+Presion R1: 119.87775898
+Temperatura R1:  298.55654183
+Catalizador R1:  8078.3354581
+Columna h2:  4.0699504856
+Corriente H2: 2507.4896854
+St:  0.89402006293
+
+ mass FLow:  1829.78734
+
+ mass frac:  0.999060998
+
+ Energia:  2131259.6569699002
+
+ convergencia:  True
+Presion R1: 117.33974449
+Temperatura R1:  217.16521874
+Catalizador R1:  8789.92126
+Columna h2:  1.2947279564
+Corriente H2: 2506.1035544
+St:  0.96276543148
+
+ mass FLow:  1754.86959
+
+ mass frac:  0.987410011
+
+ Energia:  1501723.9958803
+
+ convergencia:  True
+Presion R1: 66.49547145
+Temperatura R1:  201.59016529
+Catalizador R1:  7337.5177474
+Columna h2:  0.9942445072
+Corriente H2: 2508.6597629
+St:  0.95020500484
+
+ mass FLow:  1251.75658
+
+ mass frac:  0.951712557
+
+ Energia:  1249702.3493781001
+
+ convergencia:  True
+Presion R1: 112.01520043
+Temperatura R1:  287.55131177
+Catalizador R1:  9815.2653496
+Columna h2:  1.4455552924
+Corriente H2: 2507.2785672
+St:  0.96479014246
+
+ mass FLow:  1798.44748
+
+ mass frac:  0.990659364
+
+ Energia:  1711369.17222874
+
+ convergencia:  True
+Presion R1: 117.11555547
+Temperatura R1:  213.91237871
+Catalizador R1:  8656.8855489
+Columna h2:  1.1046792052
+Corriente H2: 2519.014049
+St:  0.96833522194
+
+ mass FLow:  1732.50517
+
+ mass frac:  0.981637827
+
+ Energia:  1468317.4226953
+
+ convergencia:  True
+Presion R1: 119.05924557
+Temperatura R1:  282.24592168
+Catalizador R1:  7475.8354313
+Columna h2:  4.0438771372
+Corriente H2: 2503.6824612
+St:  0.6722681041
+
+ mass FLow:  1830.34121
+
+ mass frac:  0.99905555
+
+ Energia:  2407770.4537662
+
+ convergencia:  True
+Presion R1: 119.92721509
+Temperatura R1:  297.34958828
+Catalizador R1:  7539.5083146
+Columna h2:  4.0365153344
+Corriente H2: 2507.616523
+St:  0.84629981299
+
+ mass FLow:  1830.22077
+
+ mass frac:  0.999052768
+
+ Energia:  2181863.217287
+
+ convergencia:  True
+Presion R1: 119.76570803
+Temperatura R1:  290.12683065
+Catalizador R1:  9378.5892728
+Columna h2:  3.0072287112
+Corriente H2: 2502.4815698
+St:  0.89064204868
+
+ mass FLow:  1826.04233
+
+ mass frac:  0.998343293
+
+ Energia:  1982060.2877833
+
+ convergencia:  True
+Presion R1: 117.11555547
+Temperatura R1:  274.18549656
+Catalizador R1:  8160.3837877
+Columna h2:  1.4105881008
+Corriente H2: 2506.6776883
+St:  0.96306927637
+
+ mass FLow:  1793.74819
+
+ mass frac:  0.990035052
+
+ Energia:  1673674.3872048901
+
+ convergencia:  True
+Presion R1: 117.41319314
+Temperatura R1:  283.17322135
+Catalizador R1:  6845.7467806
+Columna h2:  3.1634799756
+Corriente H2: 2508.6101152
+St:  0.93650933869
+
+ mass FLow:  1823.77588
+
+ mass frac:  0.998468604
+
+ Energia:  1934012.7188791002
+
+ convergencia:  True
+Presion R1: 119.67134497
+Temperatura R1:  294.2688614
+Catalizador R1:  7983.9260021
+Columna h2:  4.3835019392
+Corriente H2: 2511.3527223
+St:  0.6735449509
+
+ mass FLow:  1832.56006
+
+ mass frac:  0.999197371
+
+ Energia:  2492882.7885477
+
+ convergencia:  True
+Presion R1: 119.87884787
+Temperatura R1:  298.88158182
+Catalizador R1:  8078.3354581
+Columna h2:  4.0699504856
+Corriente H2: 2505.2149854
+St:  0.53925441484
+
+ mass FLow:  1834.85541
+
+ mass frac:  0.9991225
+
+ Energia:  2808000.6348174
+
+ convergencia:  True
+Presion R1: 117.19222998
+Temperatura R1:  213.91237871
+Catalizador R1:  8811.3301397
+Columna h2:  1.3710446364
+Corriente H2: 2505.2576308
+St:  0.95649133426
+
+ mass FLow:  1756.48687
+
+ mass frac:  0.989018195
+
+ Energia:  1505834.7948289001
+
+ convergencia:  True
+Presion R1: 114.46369824
+Temperatura R1:  217.61509388
+Catalizador R1:  7647.5980267
+Columna h2:  1.8655484836
+Corriente H2: 2510.0617473
+St:  0.9440203993
+
+ mass FLow:  1777.38695
+
+ mass frac:  0.99472494
+
+ Energia:  1586828.5843713
+
+ convergencia:  True
+Presion R1: 117.33974449
+Temperatura R1:  280.00715053
+Catalizador R1:  7552.2630571
+Columna h2:  3.2314754724
+Corriente H2: 2506.1035544
+St:  0.96276543148
+
+ mass FLow:  1822.68953
+
+ mass frac:  0.998511097
+
+ Energia:  1906930.8959662502
+
+ convergencia:  True
+Presion R1: 110.10845955
+Temperatura R1:  295.005395
+Catalizador R1:  7345.4689482
+Columna h2:  3.6798043864
+Corriente H2: 2501.0884261
+St:  0.92671819948
+
+ mass FLow:  1827.0306
+
+ mass frac:  0.998854941
+
+ Energia:  2034802.8557957
+
+ convergencia:  True
+Presion R1: 119.87884787
+Temperatura R1:  298.9644303
+Catalizador R1:  8330.1084531
+Columna h2:  4.0699504856
+Corriente H2: 2505.2149854
+St:  0.53925441484
+
+ mass FLow:  1834.86252
+
+ mass frac:  0.999123081
+
+ Energia:  2808449.2516236003
+
+ convergencia:  True
+Presion R1: 119.05924557
+Temperatura R1:  282.24592168
+Catalizador R1:  8407.8502735
+Columna h2:  4.0438771372
+Corriente H2: 2503.6824612
+St:  0.6722681041
+
+ mass FLow:  1830.34036
+
+ mass frac:  0.999055319
+
+ Energia:  2407600.527852
+
+ convergencia:  True
+Presion R1: 119.18742043
+Temperatura R1:  283.02023456
+Catalizador R1:  8940.3304603
+Columna h2:  2.082028818
+Corriente H2: 2508.1903845
+St:  0.96880685938
+
+ mass FLow:  1816.22805
+
+ mass frac:  0.996249118
+
+ Energia:  1772411.99409101
+
+ convergencia:  True
+Presion R1: 53.2913789
+Temperatura R1:  210.75788044
+Catalizador R1:  7309.3874559
+Columna h2:  0.9937250564
+Corriente H2: 2510.5381648
+St:  0.9634551292
+
+ mass FLow:  1265.98286
+
+ mass frac:  0.953800492
+
+ Energia:  1268730.4736361
+
+ convergencia:  True
+Presion R1: 66.35716966
+Temperatura R1:  212.09561805
+Catalizador R1:  7503.3371021
+Columna h2:  1.0518507064
+Corriente H2: 2506.5717406
+St:  0.94978884208
+
+ mass FLow:  1523.13679
+
+ mass frac:  0.973340359
+
+ Energia:  1386030.4023583
+
+ convergencia:  True
+Presion R1: 118.56448262
+Temperatura R1:  297.40324848
+Catalizador R1:  7539.5083146
+Columna h2:  4.0387700836
+Corriente H2: 2500.7287467
+St:  0.49174117879
+
+ mass FLow:  1835.33179
+
+ mass frac:  0.999115826
+
+ Energia:  2958057.0493055
+
+ convergencia:  True
+Presion R1: 115.68507708
+Temperatura R1:  208.49924593
+Catalizador R1:  8703.4240738
+Columna h2:  0.9942445072
+Corriente H2: 2529.5707199
+St:  0.95860236838
+
+ mass FLow:  1707.04482
+
+ mass frac:  0.976810444
+
+ Energia:  1447766.9553134001
+
+ convergencia:  True
+Presion R1: 66.49547145
+Temperatura R1:  201.59016529
+Catalizador R1:  9727.4518809
+Columna h2:  1.0064826496
+Corriente H2: 2508.6597629
+St:  0.95020500484
+
+ mass FLow:  1397.36185
+
+ mass frac:  0.962672524
+
+ Energia:  1307619.0546763001
+
+ convergencia:  True
+Presion R1: 116.59602987
+Temperatura R1:  206.07622005
+Catalizador R1:  7639.0179654
+Columna h2:  1.4317508468
+Corriente H2: 2522.1979225
+St:  0.96786168355
+
+ mass FLow:  1733.91377
+
+ mass frac:  0.989875938
+
+ Energia:  1477979.2114496
+
+ convergencia:  True
+Presion R1: 119.42193603
+Temperatura R1:  246.15316927
+Catalizador R1:  7458.8122215
+Columna h2:  2.2270044532
+Corriente H2: 2532.1423353
+St:  0.9281035318
+
+ mass FLow:  1805.30015
+
+ mass frac:  0.996656121
+
+ Energia:  1735135.3421025
+
+ convergencia:  True
+Presion R1: 114.46369824
+Temperatura R1:  298.03091244
+Catalizador R1:  7647.1569982
+Columna h2:  1.9316082884
+Corriente H2: 2526.3250775
+St:  0.9440203993
+
+ mass FLow:  1816.61611
+
+ mass frac:  0.995537286
+
+ Energia:  1825116.9213884
+
+ convergencia:  True
+Presion R1: 118.70884497
+Temperatura R1:  215.1470483
+Catalizador R1:  8876.0539511
+Columna h2:  1.4548516784
+Corriente H2: 2504.8911813
+St:  0.96276543148
+
+ mass FLow:  1763.05138
+
+ mass frac:  0.990501243
+
+ Energia:  1514560.6507529
+
+ convergencia:  True
+Presion R1: 119.9490139
+Temperatura R1:  297.67419036
+Catalizador R1:  8085.7320341
+Columna h2:  2.09556291
+Corriente H2: 2521.5895436
+St:  0.95424149599
+
+ mass FLow:  1819.70738
+
+ mass frac:  0.996346532
+
+ Energia:  1832095.6850364
+
+ convergencia:  True
+Presion R1: 119.93459312
+Temperatura R1:  217.61509388
+Catalizador R1:  8679.6557559
+Columna h2:  1.8655484836
+Corriente H2: 2510.0617473
+St:  0.9440203993
+
+ mass FLow:  1780.25678
+
+ mass frac:  0.994748364
+
+ Energia:  1588252.9054593001
+
+ convergencia:  True
+Presion R1: 117.88181668
+Temperatura R1:  283.17879164
+Catalizador R1:  7381.4903408
+Columna h2:  3.1634799756
+Corriente H2: 2501.0685759
+St:  0.95830483969
+
+ mass FLow:  1823.60639
+
+ mass frac:  0.998468265
+
+ Energia:  1910406.5963098002
+
+ convergencia:  True
+Presion R1: 119.09792894
+Temperatura R1:  293.96845888
+Catalizador R1:  8977.3818018
+Columna h2:  4.0513722116
+Corriente H2: 2511.3636398
+St:  0.29557818457
+
+ mass FLow:  1837.64424
+
+ mass frac:  0.999152962
+
+ Energia:  4178270.400919
+
+ convergencia:  True
+Presion R1: 117.99688229
+Temperatura R1:  206.65219743
+Catalizador R1:  8966.1963385
+Columna h2:  1.3555692996
+Corriente H2: 2526.4531716
+St:  0.95176806424
+
+ mass FLow:  1741.80738
+
+ mass frac:  0.988596947
+
+ Energia:  1489359.8348461
+
+ convergencia:  True
+Presion R1: 66.49631823
+Temperatura R1:  201.59016529
+Catalizador R1:  7499.4454476
+Columna h2:  1.24903745
+Corriente H2: 2508.6608875
+St:  0.95018882284
+
+ mass FLow:  1289.07773
+
+ mass frac:  0.96354337
+
+ Energia:  1278405.3826956
+
+ convergencia:  True
+Presion R1: 118.43711846
+Temperatura R1:  208.49924593
+Catalizador R1:  9862.0420261
+Columna h2:  0.9942445072
+Corriente H2: 2529.5707199
+St:  0.95860236838
+
+ mass FLow:  1711.78617
+
+ mass frac:  0.976849333
+
+ Energia:  1449895.5907929
+
+ convergencia:  True
+Presion R1: 112.01520043
+Temperatura R1:  287.55131177
+Catalizador R1:  7413.2637156
+Columna h2:  1.4333171544
+Corriente H2: 2507.2785672
+St:  0.96479014246
+
+ mass FLow:  1797.79568
+
+ mass frac:  0.990455988
+
+ Energia:  1709941.15452005
+
+ convergencia:  True
+Presion R1: 57.46870458
+Temperatura R1:  217.87978842
+Catalizador R1:  7553.9793991
+Columna h2:  1.0343592412
+Corriente H2: 2510.022713
+St:  0.96265006165
+
+ mass FLow:  1524.79448
+
+ mass frac:  0.973244068
+
+ Energia:  1390206.2539142
+
+ convergencia:  True
+Presion R1: 77.82702421
+Temperatura R1:  206.19207777
+Catalizador R1:  9044.8304757
+Columna h2:  1.2081175644
+Corriente H2: 2500.7465692
+St:  0.96564517411
+
+ mass FLow:  1605.60821
+
+ mass frac:  0.982075737
+
+ Energia:  1400528.1846398
+
+ convergencia:  True
+Presion R1: 114.11350235
+Temperatura R1:  298.9644303
+Catalizador R1:  7617.0002152
+Columna h2:  4.0699504856
+Corriente H2: 2505.2149854
+St:  0.53925441484
+
+ mass FLow:  1834.49402
+
+ mass frac:  0.999118312
+
+ Energia:  2807222.2085288
+
+ convergencia:  True
+Presion R1: 114.7108645
+Temperatura R1:  299.07556902
+Catalizador R1:  5032.9448272
+Columna h2:  3.9977221096
+Corriente H2: 2535.8507611
+St:  0.96911002306
+
+ mass FLow:  1827.56489
+
+ mass frac:  0.999013787
+
+ Energia:  2052668.3828462001
+
+ convergencia:  True
+Presion R1: 103.02866782
+Temperatura R1:  217.16521874
+Catalizador R1:  8789.92126
+Columna h2:  1.2454531792
+Corriente H2: 2506.4124277
+St:  0.9630658129
+
+ mass FLow:  1743.54772
+
+ mass frac:  0.986129033
+
+ Energia:  1491848.3922673
+
+ convergencia:  True
+Presion R1: 119.96096551
+Temperatura R1:  297.40324848
+Catalizador R1:  7872.8391002
+Columna h2:  3.6439967112
+Corriente H2: 2505.341823
+St:  0.6018746989
+
+ mass FLow:  1833.17748
+
+ mass frac:  0.998913612
+
+ Energia:  2574137.8418843
+
+ convergencia:  True
+Presion R1: 111.18861027
+Temperatura R1:  217.61509388
+Catalizador R1:  7647.5980267
+Columna h2:  1.8648529976
+Corriente H2: 2510.0617473
+St:  0.9440203993
+
+ mass FLow:  1775.58076
+
+ mass frac:  0.994700134
+
+ Energia:  1585742.6769388
+
+ convergencia:  True
+Presion R1: 68.48505861
+Temperatura R1:  201.43059434
+Catalizador R1:  8398.2281352
+Columna h2:  1.0575152532
+Corriente H2: 2506.5717406
+St:  0.94978884208
+
+ mass FLow:  1358.32023
+
+ mass frac:  0.961912566
+
+ Energia:  1294425.1806229001
+
+ convergencia:  True
+Presion R1: 118.90590183
+Temperatura R1:  217.16521874
+Catalizador R1:  9819.4118989
+Columna h2:  1.2947279564
+Corriente H2: 2507.3139577
+St:  0.96276543148
+
+ mass FLow:  1755.6207
+
+ mass frac:  0.987420025
+
+ Energia:  1502490.5463653
+
+ convergencia:  True
+Presion R1: 119.70823853
+Temperatura R1:  244.79395735
+Catalizador R1:  6504.5694794
+Columna h2:  1.3605316548
+Corriente H2: 2504.2882239
+St:  0.94114073671
+
+ mass FLow:  1780.43598
+
+ mass frac:  0.989010239
+
+ Energia:  1607587.0324294
+
+ convergencia:  True
+Presion R1: 117.54883612
+Temperatura R1:  211.7778
+Catalizador R1:  8707.2731109
+Columna h2:  1.0343592412
+Corriente H2: 2526.5629218
+St:  0.96265006165
+
+ mass FLow:  1720.86732
+
+ mass frac:  0.978736801
+
+ Energia:  1460195.0996075
+
+ convergencia:  True
+Presion R1: 108.22034607
+Temperatura R1:  210.28315014
+Catalizador R1:  7309.3874559
+Columna h2:  0.98017468
+Corriente H2: 2510.5381648
+St:  0.9634551292
+
+ mass FLow:  1694.73459
+
+ mass frac:  0.976008686
+
+ Energia:  1437057.6556263
+
+ convergencia:  True
+Presion R1: 117.33974449
+Temperatura R1:  280.00715053
+Catalizador R1:  6407.1253911
+Columna h2:  3.2626968164
+Corriente H2: 2506.1035544
+St:  0.96416900422
+
+ mass FLow:  1822.74741
+
+ mass frac:  0.998536907
+
+ Energia:  1909382.2722280698
+
+ convergencia:  True
+Presion R1: 119.25582888
+Temperatura R1:  282.92004513
+Catalizador R1:  9869.4290317
+Columna h2:  2.7596117284
+Corriente H2: 2503.4809506
+St:  0.95452607386
+
+ mass FLow:  1822.19991
+
+ mass frac:  0.997993121
+
+ Energia:  1865496.7003989
+
+ convergencia:  True
+Presion R1: 119.88578227
+Temperatura R1:  246.15316927
+Catalizador R1:  8141.4125879
+Columna h2:  2.2270044532
+Corriente H2: 2532.6490142
+St:  0.9281035318
+
+ mass FLow:  1805.37867
+
+ mass frac:  0.996650304
+
+ Energia:  1735109.9050575001
+
+ convergencia:  True
+Presion R1: 66.49547145
+Temperatura R1:  201.59016529
+Catalizador R1:  7320.5902319
+Columna h2:  1.0072755252
+Corriente H2: 2508.6597629
+St:  0.95020500484
+
+ mass FLow:  1252.18908
+
+ mass frac:  0.952386816
+
+ Energia:  1250403.4776116
+
+ convergencia:  True
+Presion R1: 66.49344338
+Temperatura R1:  208.66022928
+Catalizador R1:  7309.3874559
+Columna h2:  0.9937250564
+Corriente H2: 2510.5381648
+St:  0.96095584453
+
+ mass FLow:  1435.27692
+
+ mass frac:  0.965295132
+
+ Energia:  1331860.8512313
+
+ convergencia:  True
+Presion R1: 119.96096551
+Temperatura R1:  297.34680352
+Catalizador R1:  7872.8391002
+Columna h2:  3.6439967112
+Corriente H2: 2505.341823
+St:  0.83437652041
+
+ mass FLow:  1829.84635
+
+ mass frac:  0.998871942
+
+ Energia:  2149445.9098522
+
+ convergencia:  True
+Presion R1: 99.24198954
+Temperatura R1:  213.91237871
+Catalizador R1:  8953.6519954
+Columna h2:  0.6859612836
+Corriente H2: 2505.2576308
+St:  0.95649133426
+
+ mass FLow:  1644.88331
+
+ mass frac:  0.956407956
+
+ Energia:  1420382.3839928
+
+ convergencia:  True
+Presion R1: 119.72473369
+Temperatura R1:  294.6289959
+Catalizador R1:  6965.751246
+Columna h2:  3.6507465488
+Corriente H2: 2502.4900439
+St:  0.1639521849
+
+ mass FLow:  1839.12119
+
+ mass frac:  0.99898942
+
+ Energia:  6583271.113719
+
+ convergencia:  True
+Presion R1: 113.33876938
+Temperatura R1:  223.93544396
+Catalizador R1:  7410.9925191
+Columna h2:  1.4992160248
+Corriente H2: 2507.321279
+St:  0.96276543148
+
+ mass FLow:  1771.33603
+
+ mass frac:  0.991229039
+
+ Energia:  1545021.7506512
+
+ convergencia:  True
+Presion R1: 118.69138093
+Temperatura R1:  215.1470483
+Catalizador R1:  8876.0539511
+Columna h2:  1.2679851788
+Corriente H2: 2504.8911813
+St:  0.96276543148
+
+ mass FLow:  1751.27103
+
+ mass frac:  0.986744191
+
+ Energia:  1492518.8220369
+
+ convergencia:  True
+Presion R1: 119.92721509
+Temperatura R1:  297.40603324
+Catalizador R1:  7539.5083146
+Columna h2:  4.0365153344
+Corriente H2: 2507.616523
+St:  0.60777886429
+
+ mass FLow:  1833.64402
+
+ mass frac:  0.999095902
+
+ Energia:  2607766.6224891
+
+ convergencia:  True
+Presion R1: 66.49547145
+Temperatura R1:  208.49924593
+Catalizador R1:  8714.69662
+Columna h2:  0.9942445072
+Corriente H2: 2507.0401052
+St:  0.96811037218
+
+ mass FLow:  1504.03929
+
+ mass frac:  0.969792294
+
+ Energia:  1351172.712226
+
+ convergencia:  True
+Presion R1: 119.16341909
+Temperatura R1:  287.79347578
+Catalizador R1:  9949.2402905
+Columna h2:  4.0438771372
+Corriente H2: 2503.6824612
+St:  0.6722681041
+
+ mass FLow:  1831.31007
+
+ mass frac:  0.99906789
+
+ Energia:  2427506.736475
+
+ convergencia:  True
+Presion R1: 53.2913789
+Temperatura R1:  210.75788044
+Catalizador R1:  7386.2730033
+Columna h2:  0.9937250564
+Corriente H2: 2510.5381648
+St:  0.9634551292
+
+ mass FLow:  1271.68431
+
+ mass frac:  0.954205043
+
+ Energia:  1270975.961258
+
+ convergencia:  True
