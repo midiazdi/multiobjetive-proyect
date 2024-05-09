@@ -10,88 +10,27 @@ def get_HeatDuty(sim):
              
         }
         datos = {
-            'HEATER-1':{'co2': 0,'usage': 0,'cost':0
-            },
+            'HEATER-1':{'co2': 0,'usage': 0,'cost':0},
             #posible heater
-            'COMP-1':{
-                'co2': 0,
-                'usage': 0,
-                'cost':0
-            },
-            'COMP-3':{
-                'co2': 0,
-                'usage': 0,
-                'cost':0
-            },
-            'COMP-4':{
-                'co2': 0,
-                'usage': 0,
-                'cost':0
-            },
-            'COOLER-1':{
-                'co2': 0,
-                'usage': 0,
-                'cost':0
-            },
-            'COOLER-2':{
-                'co2': 0,
-                'usage': 0,
-                'cost':0
-            },
-            'COOLER-3':{
-                'co2': 0,
-                'usage': 0,
-                'cost':0
-            },
-            'COOLER-5':{
-                'co2': 0,
-                'usage': 0,
-                'cost':0
-            },
-            'COOLER-6':{
-                'co2': 0,
-                'usage': 0,
-                'cost':0
-            },
-            'COOLER-7':{
-                'co2': 0,
-                'usage': 0,
-                'cost':0
-            },
-            'COOLER-4':{
-                'co2': 0,
-                'usage': 0,
-                'cost':0
-            },
-            'FLASH-1':{
-                'co2': 0,
-                'usage': 0,
-                'cost':0
-            },
-            'FLASH-3':{
-                'co2': 0,
-                'usage': 0,
-                'cost':0
-            },
+            'COMP-1':{'co2': 0,'usage': 0,'cost':0},
+            'COMP-3':{'co2': 0,'usage': 0,'cost':0},
+            'COMP-4':{'co2': 0,'usage': 0,'cost':0},
+            'COOLER-1':{'co2': 0,'usage': 0,'cost':0},
+            'COOLER-2':{'co2': 0,'usage': 0,'cost':0},
+            'COOLER-3':{'co2': 0,'usage': 0,'cost':0},
+            'COOLER-5':{'co2': 0,'usage': 0,'cost':0},
+            'COOLER-6':{'co2': 0,'usage': 0,'cost':0},
+            'COOLER-7':{'co2': 0,'usage': 0,'cost':0},
+            'COOLER-4':{'co2': 0,'usage': 0,'cost':0},
+            'FLASH-1':{'co2': 0,'usage': 0,'cost':0},
+            'FLASH-3':{'co2': 0,'usage': 0,'cost':0},
             'COLUMN1':{
-                'condenser':{
-                    'co2': 0,
-                    'usage': 0,
-                    'cost':0},
-                'reboiler':{
-                    'co2': 0,
-                    'usage': 0,
-                    'cost':0},
+                'condenser':{'co2': 0,'usage': 0,'cost':0},
+                'reboiler':{'co2': 0,'usage': 0,'cost':0},
             },
             'COLUMN2':{
-                'condenser':{
-                    'co2': 0,
-                    'usage': 0,
-                    'cost':0},
-                'reboiler':{
-                    'co2': 0,
-                    'usage': 0,
-                    'cost':0},
+                'condenser':{'co2': 0,'usage': 0,'cost':0},
+                'reboiler':{'co2': 0,'usage': 0,'cost':0},
             }
         }
         for name,typ in blocks.items():
@@ -112,7 +51,6 @@ def get_HeatDuty(sim):
                 datos[name]['reboiler']['co2'] = reboiler_co2rate
                 datos[name]['reboiler']['usage'] = reboiler_usege
                 datos[name]['reboiler']['cost'] = reboiler_cost
-                print(name)
 
             elif typ == 'Flash2':
                 if name == 'FLASH-2': continue
@@ -148,31 +86,34 @@ def get_HeatDuty(sim):
                 datos[name]['co2'] = compr_co2rate
                 datos[name]['usage'] = compr_usage
                 datos[name]['cost'] = compr_cost
-                print(name)
 
 
         # Inicializa la suma de costos
         suma_costos = 0.0
-
+        co2_total = 0
         # Itera sobre los elementos del diccionario
         for key, value in datos.items():
             # Si el valor es un diccionario, suma el costo
             if isinstance(value, dict):
                 # Itera sobre los valores del diccionario interno
-                for subvalue in value.values():
+                for subkey, subvalue in value.items():
                     # Verifica si subvalue es un diccionario antes de acceder a 'cost'
                     if isinstance(subvalue, dict) and 'cost' in subvalue:
                         suma_costos += subvalue['cost']
-                    else:
-                        print("El valor no tiene la clave 'cost':", subvalue)
-            else:
-                # Si el valor no es un diccionario, imprime un mensaje de advertencia
-                print("El valor no es un diccionario:", value)
-
-        # Imprime la suma de costos
-        print("La suma de los costos es:", suma_costos) 
+                    if 'cost' in subkey: suma_costos += subvalue
         
-        return suma_costos
+        for key, value in datos.items():
+            # Si el valor es un diccionario, suma el costo
+            if isinstance(value, dict):
+                # Itera sobre los valores del diccionario interno
+                for subkey, subvalue in value.items():
+                    # Verifica si subvalue es un diccionario antes de acceder a 'cost'
+                    if isinstance(subvalue, dict) and 'co2' in subvalue:
+                        co2_total += subvalue['co2']
+                    if 'co2' in subkey:co2_total += subvalue
+                    
+        
+        return suma_costos, co2_total,datos
 
 
 sim = Simulation(AspenFileName= "Methanol_CO2.bkp", WorkingDirectoryPath= r"C:/Users/LAB-4066294/Desktop/Miguel/simulaciones" ,VISIBILITY=False)
@@ -183,25 +124,20 @@ sim.DialogSuppression(TrueOrFalse= False)
 print(get_HeatDuty(sim=sim))
 
 
-
-datos2 = {
-    'HEATER-1': 'LPSTEAM',#########
-    #posible heater
-    'COMP-1':'EL',#########
-    'COMP-3':'EL',#########
-    'COMP-4':'EL',#########
-    'COOLER-1':'WATER',#########
-    'COOLER-2':'WATER',#########
-    'COOLER-3':'WATER',#########
-    'COOLER-4':'WATER',#########
-    'COOLER-5':'WATER',#########
-    'COOLER-6':'WATER',#########
-    'COOLER-7':'WATER',#########
-    'FLASH-1':'WATER',###########
-    'FLASH-3':'WATER',###########
-    'COLUMN1': 'WATER', #########
-    'COLUMN1':'MPSTEAM',#########
-    'COLUMN2': 'WATER',##########
-    'COLUMN2':'MPSTEAM',#########
-
-}
+{'HEATER-1': {'co2': 0.73029661, 'usage': 5.63144703, 'cost': 0.0489780252},
+'COMP-1': {'co2': 355.376176, 'usage': 1138.49773, 'cost': 62.6173749}, 
+'COMP-3': {'co2': 18.822681, 'usage': 60.3011144, 'cost': 3.31656129}, 
+'COMP-4': {'co2': 29.7935282, 'usage': 95.4477715, 'cost': 5.24962743}, 
+'COOLER-1': {'co2': 0, 'usage': 1112263.29, 'cost': 399.695691}, 
+'COOLER-2': {'co2': 0, 'usage': 488824.175, 'cost': 175.660672}, 
+'COOLER-3': {'co2': 0, 'usage': 12010.2304, 'cost': 4.31591816}, 
+'COOLER-5': {'co2': 0, 'usage': 24659.9837, 'cost': 8.86165114}, 
+'COOLER-6': {'co2': 0, 'usage': 18483.4423, 'cost': 6.64208946}, 
+'COOLER-7': {'co2': 0, 'usage': 37218.2459, 'cost': 13.3745064}, 
+'COOLER-4': {'co2': 0, 'usage': 20520.4564, 'cost': 7.37409756}, 
+'FLASH-1': {'co2': 0, 'usage': 58.5401921, 'cost': 0.0210366222}, 
+'FLASH-3': {'co2': 0, 'usage': 2.89093335e-11, 'cost': 1.03886698e-14}, 
+'COLUMN1': {'condenser': {'co2': 0, 'usage': 1623.7829, 'cost': 0.583512049}, 
+            'reboiler': {'co2': 82.024966, 'usage': 681.352638, 'cost': 6.06107615}}, 
+'COLUMN2': {'condenser': {'co2': 0, 'usage': 438215.695, 'cost': 157.474338}, 
+            'reboiler': {'co2': 590.352008, 'usage': 4903.84718, 'cost': 43.6229194}}}
