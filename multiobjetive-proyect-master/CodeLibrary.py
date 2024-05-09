@@ -2023,7 +2023,7 @@ class Simulation():
 
 
     #PAGE 5 Utilities
-    ##MISSING
+    
 
 
 
@@ -2760,6 +2760,33 @@ class Simulation():
         }
         return Dictionary
 
+
+## OUTPUTS FOR COMPR
+#PAGE 4:        Utility usaga
+    def BLK_COMPR_Get_utility_co2rate(self,Blockname):
+        return self.BLK.Elements(Blockname).Elements("Output").Elements("UTIL_CO2RATE").Value
+    def BLK_COMPR_Get_utility_cost(self,Blockname):
+        return self.BLK.Elements(Blockname).Elements("Output").Elements("UTIL_COST").Value
+    def BLK_COMPR_Get_utility_duty(self,Blockname):
+        return self.BLK.Elements(Blockname).Elements("Output").Elements("UTIL_DUTY").Value
+    def BLK_COMPR_Get_utility_id(self,Blockname):
+        return self.BLK.Elements(Blockname).Elements("Output").Elements("UTL_ID").Value
+    def BLK_COMPR_Get_utility_usage(self,Blockname):
+        return self.BLK.Elements(Blockname).Elements("Output").Elements("UTL_USAGE").Value
+
+## OUTPUTS FOR HEATER
+#PAGE 4:        Utility usaga
+    def BLK_HEATER_Get_utility_co2rate(self,Blockname):
+        return self.BLK.Elements(Blockname).Elements("Output").Elements("UTIL_CO2RATE").Value
+    def BLK_HEATER_Get_utility_cost(self,Blockname):
+        return self.BLK.Elements(Blockname).Elements("Output").Elements("UTIL_COST").Value
+    def BLK_HEATER_Get_utility_duty(self,Blockname):
+        return self.BLK.Elements(Blockname).Elements("Output").Elements("UTIL_DUTY").Value
+    def BLK_HEATER_Get_utility_id(self,Blockname):
+        return self.BLK.Elements(Blockname).Elements("Output").Elements("UTL_ID").Value
+    def BLK_HEATER_Get_utility_usage(self,Blockname):
+        return self.BLK.Elements(Blockname).Elements("Output").Elements("UTL_USAGE").Value
+
 ## OUTPUTS FOR DSTWU
 #PAGE 1:        Summary
     def BLK_DSTWU_Get_MinimumRefluxRatio(self, Blockname):
@@ -2972,7 +2999,17 @@ class Simulation():
 
 #PAGE 4:        Utility Usage:
 
-    #I CAN not ACTIVATE THIS....
+    def BLK_FLASH2_Get_utility_usage(self,Blockname):
+        return self.BLK.Elements(Blockname).Elements("Output").Elements("UTL_USAGE").Value
+    def BLK_FLASH2_Get_utility_co2rate(self,Blockname):
+        return self.BLK.Elements(Blockname).Elements("Output").Elements("UTIL_CO2RATE").Value
+    def BLK_FLASH2_Get_utility_cost(self,Blockname):
+        return self.BLK.Elements(Blockname).Elements("Output").Elements("UTIL_COST").Value
+    def BLK_FLASH2_Get_utility_duty(self,Blockname):
+        return self.BLK.Elements(Blockname).Elements("Output").Elements("UTIL_DUTY").Value
+    def BLK_FLASH2_Get_utility_id(self,Blockname):
+        return self.BLK.Elements(Blockname).Elements("Output").Elements("UTL_ID").Value
+
 
 #PAGE 5:        Status:
     def BLK_FLASH2_Get_ConvergenceStatus(self, Blockname):
@@ -3227,19 +3264,22 @@ class Simulation():
 
 #PAGE 5 Utilities:
     def BLK_RADFRAC_Get_Reboiler_Duty(self, Blockname):
-        return self.BLK.Elements(Blockname).Elements("Output").Elements("COND_DUTY").Value  
+        return self.BLK.Elements(Blockname).Elements("Output").Elements("REB_DUTY").Value  
     def BLK_RADFRAC_Get_Reboiler_Usage(self, Blockname):
-        return self.BLK.Elements(Blockname).Elements("Output").Elements("COND_DUTY").Value   
+        return self.BLK.Elements(Blockname).Elements("Output").Elements("REB_USAGE").Value   
     def BLK_RADFRAC_Get_Reboiler_Co2Rate(self, Blockname):
-        return self.BLK.Elements(Blockname).Elements("Output").Elements("COND_CO2RATE").Value  
+        return self.BLK.Elements(Blockname).Elements("Output").Elements("REB_CO2RATE").Value  
+    def BLK_RADFRAC_Get_Reboiler_Cost(self, Blockname):
+        return self.BLK.Elements(Blockname).Elements("Output").Elements("REB_COST").Value  
     
     def BLK_RADFRAC_Get_Condenser_Duty(self, Blockname):
-        return self.BLK.Elements(Blockname).Elements("Output").Elements("REB_DUTY").Value  
+        return self.BLK.Elements(Blockname).Elements("Output").Elements("COND_DUTY").Value  
     def BLK_RADFRAC_Get_Condenser_Usage(self, Blockname):
-        return self.BLK.Elements(Blockname).Elements("Output").Elements("REB_DUTY").Value   
+        return self.BLK.Elements(Blockname).Elements("Output").Elements("COND_USAGE").Value   
     def BLK_RADFRAC_Get_Condenser_Co2Rate(self, Blockname):
-        return self.BLK.Elements(Blockname).Elements("Output").Elements("REB_CO2RATE").Value 
-        
+        return self.BLK.Elements(Blockname).Elements("Output").Elements("COND_CO2RATE").Value 
+    def BLK_RADFRAC_Get_Condenser_Cost(self, Blockname):
+        return self.BLK.Elements(Blockname).Elements("Output").Elements("COND_COST").Value       
 
 #PAGE 6 STAGE UTILITIES:
         #MISSING

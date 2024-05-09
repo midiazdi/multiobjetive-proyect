@@ -104,34 +104,112 @@ class MyOptimizationProblem(ElementwiseProblem):
         return convergence, x1 , x2, massFrac_metoh 
 
     def get_HeatDuty(self):
-    
-        datos = {}
+        """
+        Funcion que captura el co2 y el uso de la sustancia en utilities 
+        """
+        datos = {
+            'HEATER-1':{
+                'co2': 0,
+                'usage': 0
+            },
+            #posible heater
+            'COMP-1':{
+                'co2': 0,
+                'usage': 0
+            },
+            'COMP-3':{
+                'co2': 0,
+                'usage': 0
+            },
+            'COMP-4':{
+                'co2': 0,
+                'usage': 0
+            },
+            'COOLER-1':{
+                'co2': 0,
+                'usage': 0
+            },
+            'COOLER-2':{
+                'co2': 0,
+                'usage': 0
+            },
+            'COOLER-3':{
+                'co2': 0,
+                'usage': 0
+            },
+            'COOLER-5':{
+                'co2': 0,
+                'usage': 0
+            },
+            'COOLER-6':{
+                'co2': 0,
+                'usage': 0
+            },
+            'COOLER-7':{
+                'co2': 0,
+                'usage': 0
+            },
+            'COOLER-4':{
+                'co2': 0,
+                'usage': 0
+            },
+            'FLASH-1':{
+                'co2': 0,
+                'usage': 0
+            },
+            'FLASH-3':{
+                'co2': 0,
+                'usage': 0
+            },
+            'COLUMN1':{
+                'condenser':{
+                    'co2': 0,
+                    'usage': 0},
+                'reboiler':{
+                    'co2': 0,
+                    'usage': 0},
+            },
+            'COLUMN2':{
+                'condenser':{
+                    'co2': 0,
+                    'usage': 0},
+                'reboiler':{
+                    'co2': 0,
+                    'usage': 0},
+            }
+        }
         for name,typ in self.blocks.items():
             if typ == 'RadFrac':
                 #columna1
-                condenser_co2rate_col2 = self.sim.BLK_RADFRAC_Get_Reboiler_Duty(name) #capturar el co2 del condensador de la columna
-                condenser_usage_col2 = self.sim.BLK_RADFRAC_Get_Reboiler_Usage(name) #capturar el uso de agua para el condensador
-                reboiler_co2rate_col2 = self.sim.BLK_RADFRAC_Get_Reboiler_Co2Rate(name) #capturar el co2 del reboiler de la columna
-                reboiler_usege_col2 = self.sim.BLK_RADFRAC_Get_Reboiler_Usage(name) #capturar el uso de MPSTEAM para el reboiler
-                #columna2
+                condenser_co2rate = self.sim.BLK_RADFRAC_Get_Reboiler_Duty(name) #capturar el co2 del condensador de la columna
+                condenser_usage = self.sim.BLK_RADFRAC_Get_Reboiler_Usage(name) #capturar el uso de agua para el condensador
+                reboiler_co2rate = self.sim.BLK_RADFRAC_Get_Reboiler_Co2Rate(name) #capturar el co2 del reboiler de la columna
+                reboiler_usege = self.sim.BLK_RADFRAC_Get_Reboiler_Usage(name) #capturar el uso de MPSTEAM para el reboiler
+                datos[name]['condenser']['co2'] = condenser_co2rate
+                datos[name]['condenser']['usage'] = condenser_usage
+                datos[name]['reboiler']['co2'] = reboiler_co2rate
+                datos[name]['reboiler']['usage'] = reboiler_usege
 
-                condenser_co2rate_col1 = self.sim.AspenSimulation.Tree.FindNode("\Data\Blocks\COLUMN1\Output\CO2RATE") #capturar el co2 del condensador de la columna
-                condenser_usage_col1 = self.sim.AspenSimulation.Tree.FindNode("\Data\Blocks\COLUMN1\Output\COND_USAGE") #capturar el uso de agua para el condensador
-                reboiler_co2rate_col1 = self.sim.AspenSimulation.Tree.FindNode("\Data\Blocks\COLUMN1\Output\REB_CO2RATE") #capturar el co2 del reboiler de la columna
-                reboiler_usege_col1 = self.sim.AspenSimulation.Tree.FindNode("\Data\Blocks\COLUMN1\Output\REB_USAGE") #capturar el uso de MPSTEAM para el reboiler
-
-            elif typ == 'Heater':
-                HeaterHeatDuty = self.sim.BLK_RCSTR_Get_HeatDuty(name)
-                if HeaterHeatDuty == None:
-                    datos[name] = 0
-                else:
-                    datos[name] = abs(HeaterHeatDuty)
             elif typ == 'Flash2':
-                Flash2HeatDuty = self.sim.BLK_FLASH2_Get_HeatingDuty(name)
-                if Flash2HeatDuty == None:
-                    datos[name] = 0
-                else:    
-                    datos[name] = abs(Flash2HeatDuty)
+                flash_co2rate = self.sim.BLK_FLASH2_Get_utility_co2rate(name)#captura el co2 de los equipos flash
+                flash_usage = self.sim.BLK_FLASH2_Get_utility_usage(name)#captura el usage de los equipos flash
+
+                datos[name]['co2'] = flash_co2rate
+                datos[name]['usage'] = flash_usage
+            elif typ == 'Heater':
+                heater_co2rate = self.sim.BLK_HEATER_Get_utility_co2rate(name)#captura el co2 de los equipos heater
+                heater_usage = self.sim.BLK_HEATER_Get_utility_usage(name)#captura el usage de los equipos heater
+
+                datos[name]['co2'] = heater_co2rate
+                datos[name]['usage'] = heater_usage
+            elif typ == 'Compr':
+                compr_co2rate = self.sim.BLK_COMPR_Get_utility_co2rate(name)
+                compr_usage = self.sim.BLK_COMPR_Get_utility_usage(name)
+
+                datos[name]['co2'] = compr_co2rate
+                datos[name]['usage'] = compr_usage
+
+                
         return sum(datos.values())
 
 
