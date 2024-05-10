@@ -9,7 +9,7 @@ import pandas as pd
 #############################
 #apertura de datos
 #############################
-data = pd.read_csv("resultados_multiobjetivo.csv", sep=";", decimal=",")
+data = pd.read_csv("random_data.csv", sep=",", decimal=".")
 flujo = []
 
 #############################
@@ -21,10 +21,9 @@ fin = time.time()
 print("\n tiempo de conexion: ",fin-ini)
 
 
-datos_viables = []
+datos_viables = pd.DataFrame(columns=['Presion', 'Temperatura', 'Peso', 'Flujo', 'H2', 'Hidrogeno', 'Metanol'])
 
 for index, row in data.iterrows():
-
     sim.BLK_RPLUG_Set_InletProcessflowPressure("R-1",row["Presion"]) #asigna la presion del reactor R-1
     sim.BLK_RPLUG_Set_T_SPEC_Constant_Temp("R-1", row["Temperatura"]) #asigna la temperatura del raactor R-1
     sim.BLK_RPLUG_Set_WeightOfCatalystLoaded("R-1",row["Peso"]) #asigna el peso del reactor R-1
@@ -36,9 +35,12 @@ for index, row in data.iterrows():
     sim.DialogSuppression(TrueOrFalse= False)
 
     massFlow_metoh = sim.AspenSimulation.Tree.FindNode("\\Data\\Streams\\METOH\\Output\\MASSFLOW\\MIXED\\CH3OH").Value #capturar el flujo de metanol
-    flujo.append(massFlow_metoh)
+    if convergence != False and massFlow_metoh != 0:
+        row = list(row)
+        row.append(massFlow_metoh)
+        print(row)
+        datos_viables.loc[len(datos_viables)] = row
+        print(row)
 
-data['Metanol'] = flujo
+datos_viables.to_csv("C:/Users/midia/OneDrive/Escritorio/code/pymoo/datos_viables.csv",decimal=',')
 
-data.to_csv("C:/Users/midia/OneDrive/Escritorio/code/pymoo/res.csv",decimal=',')
-print(data)

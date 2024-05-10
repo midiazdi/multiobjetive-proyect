@@ -15,6 +15,8 @@ from pymoo.operators.mutation.pm import PM
 from multiprocessing.pool import ThreadPool
 from pymoo.core.problem import StarmapParallelization
 import multiprocessing
+from pymoo.core.population import Population
+import pandas as pd
 
 
 
@@ -38,7 +40,7 @@ class MyOptimizationProblem(ElementwiseProblem):
         xu = np.ones(6)
         super().__init__(n_var=6, n_obj=2, n_constr=2, xl=xl, xu=xu, **kwargs)
         #self.sim = Simulation(AspenFileName= "Methanol_CO2.bkp", WorkingDirectoryPath= r"C:/Users/LAB-4066294/Desktop/Miguel/simulaciones" ,VISIBILITY=False)
-        self.sim = Simulation(AspenFileName= "Methanol_CO2.bkp", WorkingDirectoryPath= r"C:/Users/LAB-4066294/Desktop/Miguel/simulaciones" ,VISIBILITY=False)
+        self.sim = Simulation(AspenFileName= "Methanol_CO2.bkp", WorkingDirectoryPath= r"C:/Users/midia/OneDrive/Escritorio/pablo" ,VISIBILITY=False)
         self.blocks = self.sim.ListBlocks()
         self.penaltis = 400
         self.lower = np.array([10,190,10,0.1,2500,0.1])
@@ -77,6 +79,7 @@ class MyOptimizationProblem(ElementwiseProblem):
         
         decision_var = self.diff*x + self.lower
         ##Asignacion de variables
+        print(decision_var)
         self.sim.BLK_RPLUG_Set_InletProcessflowPressure("R-1",decision_var[0]) #asigna la presion del reactor R-1
         self.sim.BLK_RPLUG_Set_T_SPEC_Constant_Temp("R-1", decision_var[1]) #asigna la temperatura del raactor R-1
         self.sim.BLK_RPLUG_Set_WeightOfCatalystLoaded("R-1",decision_var[2]) #asigna el peso del reactor R-1
@@ -227,10 +230,15 @@ if __name__=="__main__":
     runner = StarmapParallelization(pool.starmap)
 
     my_problem = MyOptimizationProblem(elementwise_runner=runner)"""
+    df = pd.read_csv("./resultados.csv")
+
+    df = df.iloc[0:19,1:7]
+
+    pop = Population.new("X",df.values) 
     my_problem = MyOptimizationProblem()
     algorithm = NSGA2(pop_size=20,
                  crossover=SBX(eta=11, prob=0.9),
-                 mutation=PM(eta=10))
+                 mutation=PM(eta=10),sampling=pop)
 
     result = minimize(my_problem,
                     algorithm,
